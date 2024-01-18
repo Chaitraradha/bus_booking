@@ -1,6 +1,5 @@
 pipeline {
     agent { label 'slave4'}
-
     stages {
         stage('checkout') {
             steps {
@@ -24,6 +23,6 @@ stage('Run JAR Locally'){
                     sh 'scp /home/slave4/workspace/bus_booking_develop/target/bus-booking-app-1.0-SNAPSHOT.jar root@172.31.8.32:/opt/apache-tomcat-8.5.98/webapps'
 }
 }
-    }
+  }
 }
 
