@@ -1,8 +1,6 @@
 pipeline {
-    agent {
-        label 'king'
-    }
-
+    agent { label 'slave4'}
+    
     environment {
         TOMCAT_HOST = '172.31.8.32'
         TOMCAT_USER = 'root'
