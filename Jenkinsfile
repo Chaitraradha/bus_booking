@@ -1,12 +1,12 @@
 pipeline {
     agent {
-        label 'slave'
+        label 'slave4'
     }
  stages {
         stage('checkout') {
             steps {
                 sh 'rm -rf bus_booking'
-                sh 'git clone '
+                sh 'git clone https://github.com/Chaitraradha/bus_booking.git'
             }
         }
 
@@ -43,9 +43,9 @@ stage('Deploy to JFrog Artifactory') {
                 script {
                     rtServer(
                         id: "Artifact",
-                        url: "http://35.154.124.78:8081//artifactory",
-                        username: "roopa",
-                        password: 'Cristiano2021$'
+                        url: "http://3.106.166.194:8081/artifactory",
+                        username: "chaitra",
+                        password: "chaitra@01"
                     )
                 }
             }
