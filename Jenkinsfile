@@ -1,4 +1,4 @@
-@Library('library-demo') _
+@Library('my_library') _
 pipeline {
     agent {
         label 'slave4'
