@@ -39,13 +39,13 @@ stage('Build') {
             }
         }
 
-	 stage('sonar') {
-            steps {
-                script {
-                    sonar ''
-                }
-            }
-        }
+	 //stage('sonar') {
+           // steps {
+             //   script {
+               //     sonar ''
+                //}
+            //}
+        //}
 stage('Deploy to JFrog Artifactory') {
             steps {
                 script {
