@@ -1,3 +1,4 @@
+@Library('library-demo') _
 pipeline {
     agent {
         label 'slave4'
@@ -10,11 +11,10 @@ pipeline {
             }
         }
 
-        stage('build') {
+stage('Build') {
             steps {
                 script {
-                    sh 'mvn --version'
-                    sh 'mvn clean install'
+                    build ''
                 }
             }
         }
@@ -38,6 +38,14 @@ pipeline {
                 }
             }
         }
+
+	 stage('sonar') {
+            steps {
+                script {
+                    sonar ''
+                }
+            }
+        }
 stage('Deploy to JFrog Artifactory') {
             steps {
                 script {
@@ -50,6 +58,7 @@ stage('Deploy to JFrog Artifactory') {
                 }
             }
         }
+
 
         stage('Upload') {
             steps {
