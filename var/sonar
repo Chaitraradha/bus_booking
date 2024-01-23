@@ -1,6 +1,0 @@
-def call ("SonarQube analysis") {
-                withSonarQubeEnv('sonar') {
-                    sh 'mvn clean package sonar:sonar'
-              }
-            }
-        
