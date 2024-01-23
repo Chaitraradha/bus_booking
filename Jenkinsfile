@@ -1,4 +1,3 @@
-@Library('my_library') _
 pipeline {
     agent {
         label 'slave4'
@@ -11,14 +10,15 @@ pipeline {
             }
         }
 
-stage('Build') {
+       stage('build') {
             steps {
                 script {
-                    build ''
+                    sh 'mvn --version'
+                    sh 'mvn clean install'
                 }
             }
         }
-
+        
         stage('Show Contents of target') {
             steps {
                 script {
@@ -38,14 +38,15 @@ stage('Build') {
                 }
             }
         }
+    stage("SonarQube analysis") {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn clean package sonar:sonar'
+              }
+            }
+        }
 
-	 //stage('sonar') {
-           // steps {
-             //   script {
-               //     sonar ''
-                //}
-            //}
-        //}
+	 
 stage('Deploy to JFrog Artifactory') {
             steps {
                 script {
